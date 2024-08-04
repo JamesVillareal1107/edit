@@ -42,4 +42,3 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
     // return true if the above procedures succeed
     return true;
 } 
-
