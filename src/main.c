@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv){  
     // parse command line arguments;
-    if(!process_arguments(argc, argv)){ 
+    if(!(process_arguments(argc, argv))){ 
         printf("INVALID ARGS");
     } 
 

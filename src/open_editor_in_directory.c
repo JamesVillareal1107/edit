@@ -6,8 +6,8 @@ void open_editor_in_directory(char directory[]){
     char code_command_prefix[] = "code ";  
     char* full_command = (char*)malloc(strlen(code_command_prefix) + strlen(directory) + 1); 
     if(full_command == NULL){ 
-        return; 
-        printf("COMMAND EXECUTION FAILED");
+        printf("COMMAND EXECUTION FAILED"); 
+        return;
     } 
     strcpy(full_command, code_command_prefix);
     strcat(full_command, directory); 
