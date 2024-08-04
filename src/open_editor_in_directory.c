@@ -1,6 +1,7 @@
 #include <stdlib.h> 
 #include <stdio.h>
-#include <string.h>
+#include <string.h> 
+
 void open_editor_in_directory(char directory[]){ 
     // set up the shell command
     char code_command_prefix[] = "code ";  
