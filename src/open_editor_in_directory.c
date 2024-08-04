@@ -18,4 +18,4 @@ void open_editor_in_directory(char directory[]){
 
     // free dynamically allocated memory
     free(full_command);
-}  
+}   

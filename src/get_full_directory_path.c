@@ -30,7 +30,7 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
     }  
     full_path[index] = '\0'; 
 
-    // if the path is invalid return false
+    // if the path is doesn't exist return false
     if(strlen(full_path) == 0){ 
         return false;
     }
@@ -42,3 +42,4 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
     // return true if the above procedures succeed
     return true;
 } 
+

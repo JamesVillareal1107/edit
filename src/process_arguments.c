@@ -9,4 +9,4 @@ bool process_arguments(int argc, char** argv){
         return false;
     }  
     return true; 
-}
+} 
