@@ -3,18 +3,17 @@
 #include <stdio.h> 
 #include <stdbool.h>
 
-bool get_full_directory_path(char* local_directory_name, char full_path[]){ 
-    // string literals representing the parts of the find command
+bool get_full_directory_path(const char* local_directory_name, char full_path[]){ 
+    // string literal representing the find command that we will concatenate our input path to
     const char find_command_prefix[] = "find ~ -type d -name "; 
-    const char* target = local_directory_name; 
 
-    // build the find command
-    char* full_command = (char*)malloc(strlen(find_command_prefix) + strlen(target) + 1);    
+    // build the find command (composed of the above prefix and the input local directory)
+    char* full_command = (char*)malloc(strlen(find_command_prefix) + strlen(local_directory_name) + 1);    
     if(full_command == NULL){ 
         return false;
     } 
     strcpy(full_command, find_command_prefix); 
-    strcat(full_command, target);
+    strcat(full_command, local_directory_name);
 
     // execute the find command and put the result in a file 
     FILE* command_result = popen(full_command, "r"); 
