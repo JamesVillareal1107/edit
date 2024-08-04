@@ -1,5 +1,5 @@
-bin/openproj: obj/main.o obj/process_arguments.o obj/get_full_directory_path.o obj/open_editor_in_directory.o
-	gcc -o bin/openproj obj/main.o obj/process_arguments.o obj/get_full_directory_path.o obj/open_editor_in_directory.o 
+bin/edit: obj/main.o obj/process_arguments.o obj/get_full_directory_path.o obj/open_editor_in_directory.o
+	gcc -o bin/edit obj/main.o obj/process_arguments.o obj/get_full_directory_path.o obj/open_editor_in_directory.o 
 
 obj/main.o: src/main.c 
 	gcc -c src/main.c   
