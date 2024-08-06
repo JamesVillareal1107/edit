@@ -11,7 +11,7 @@ int main(int argc, char** argv){
         return 1;
     }  
 
-    // try to find the global path for the second argument, return false if it could not be found, print said path afterwards
+    // try to find the global path for the second argument, print error message and return an error state if it could not be found, print said path afterwards
     char full_path[MAXIMUM_PATH_LENGTH];  
     if(!get_full_directory_path(argv[1], full_path)){  
         printf("FAILED TO FIND PATH\n");
