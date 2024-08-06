@@ -9,7 +9,7 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
 
     // build the find command (composed of the above prefix and the input local directory)
     char* full_command = (char*)malloc(strlen(find_command_prefix) + strlen(local_directory_name) + 1);    
-    if(full_command == NULL){ 
+    if(full_command == NULL){  
         return false;
     } 
     strcpy(full_command, find_command_prefix); 
@@ -17,7 +17,8 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
 
     // execute the find command and put the stdout result in a file 
     FILE* command_result = popen(full_command, "r"); 
-    if(command_result == NULL){ 
+    if(command_result == NULL){  
+        free(full_command);
         return false;
     } 
 
@@ -32,6 +33,8 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
 
     // if the path is doesn't exist, (indicated by the second parameter being empty) return false
     if(strlen(full_path) == 0){ 
+        free(full_command); 
+        fclose(command_result);  
         return false;
     }
 
