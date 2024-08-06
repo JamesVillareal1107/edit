@@ -15,22 +15,22 @@ bool get_full_directory_path(const char* local_directory_name, char full_path[])
     strcpy(full_command, find_command_prefix); 
     strcat(full_command, local_directory_name);
 
-    // execute the find command and put the result in a file 
+    // execute the find command and put the stdout result in a file 
     FILE* command_result = popen(full_command, "r"); 
     if(command_result == NULL){ 
         return false;
     } 
 
-    // copy the contents of the file into the second parameter
+    // copy the contents of the above file (output of the executed find command) into the second input argument
     int index = 0;
     char ch; 
     while((ch = fgetc(command_result)) != EOF){ 
         full_path[index] = ch; 
         index++;
     }  
-    full_path[index] = '\0'; 
+    full_path[index] = '\0'; // null terminate the input argument to make is a proper C string
 
-    // if the path is doesn't exist return false
+    // if the path is doesn't exist, (indicated by the second parameter being empty) return false
     if(strlen(full_path) == 0){ 
         return false;
     }
